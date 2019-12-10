@@ -8,3 +8,5 @@
 
 #### topic :
 mq_test_topic
+
+使用时修改ip为自己的MQ集群namesrv地址即可
