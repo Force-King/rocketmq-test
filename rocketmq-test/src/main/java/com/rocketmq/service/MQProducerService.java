@@ -16,10 +16,9 @@ public class MQProducerService {
 
     private static final Logger logger = LoggerFactory.getLogger(MQProducerService.class);
 
-    private static DefaultMQProducer producer = new DefaultMQProducer("producer");
+    private static DefaultMQProducer producer = new DefaultMQProducer("mq_test_producer");
 
-    private static final String mqUrl = "172.18.30.210:9876;172.18.30.211:9876;172.18.30.212:9876;172.18.31.94:9876;172.18.31.99:9876;172.18.31.117:9876";
-    //private static final String mqUrl = "192.168.180.12:9876";
+    private static final String mqUrl = "192.168.180.10:9876;192.168.180.11:9876;192.168.180.12:9876;";
     private static final String mqTopic = "mq_test_topic";
     private static final String mqTag = "mq_test_tag";
 

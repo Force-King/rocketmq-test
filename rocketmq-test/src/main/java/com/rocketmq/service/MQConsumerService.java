@@ -16,11 +16,10 @@ public class MQConsumerService {
 
     private static final Logger logger = LoggerFactory.getLogger(MQConsumerService.class);
 
-    private static DefaultMQPullConsumer consumer = new DefaultMQPullConsumer("consumer");
+    private static DefaultMQPullConsumer consumer = new DefaultMQPullConsumer("mq_test_consumer");
     private static final Map<MessageQueue, Long> OFFSE_TABLE = new HashMap<MessageQueue, Long>();
 
-    private static final String mqUrl = "172.18.30.210:9876;172.18.30.211:9876;172.18.30.212:9876;172.18.31.94:9876;172.18.31.99:9876;172.18.31.117:9876";
-    //private static final String mqUrl = "192.168.180.12:9876";
+    private static final String mqUrl = "192.168.180.10:9876;192.168.180.11:9876;192.168.180.12:9876;";
     private static final String mqTopic = "mq_test_topic";
     private static final String mqTag = "mq_test_tag";
 
