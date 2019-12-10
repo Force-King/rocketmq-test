@@ -44,7 +44,7 @@ public class MQProducerService {
         this.producer.setNamesrvAddr(mqUrl);
         try {
             producer.start();
-            System.out.println("MQ producer 启动成功！");
+            System.out.println("mq_test_producer 启动成功！mqUrl="+mqUrl);
         } catch (MQClientException e) {
             e.printStackTrace();
         }
@@ -57,7 +57,8 @@ public class MQProducerService {
         public void onSuccess(SendResult sendResult) {
             SendStatus status = sendResult.getSendStatus();
             if(status == SendStatus.SEND_OK){
-                logger.info("mq send success，MsgId="+sendResult.getMsgId());
+                logger.info("mq send success, MsgId="+sendResult.getMsgId());
+                System.out.println("mq send success, MsgId="+sendResult.getMsgId());
             }else{
                 logger.error("mq send failed rs {}" + JSONObject.toJSONString(sendResult));
             }
