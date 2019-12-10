@@ -19,7 +19,7 @@ public class MQConsumerService {
     private static DefaultMQPullConsumer consumer = new DefaultMQPullConsumer("mq_test_consumer");
     private static final Map<MessageQueue, Long> OFFSE_TABLE = new HashMap<MessageQueue, Long>();
 
-    private static final String mqUrl = "172.18.30.210:9876;172.18.30.211:9876;172.18.30.212:9876;172.18.31.94:9876;172.18.31.99:9876;172.18.31.117:9876";
+    private static final String mqUrl = "192.168.180.10:9876;192.168.180.11:9876;192.168.180.12:9876;";
     private static final String mqTopic = "mq_test_topic";
     private static final String mqTag = "mq_test_tag";
 
@@ -29,7 +29,7 @@ public class MQConsumerService {
         consumer.setNamesrvAddr(mqUrl);
         try {
             consumer.start();
-            System.out.println("MQ Consumer 启动成功！");
+            System.out.println("mq_test_consumer 启动成功！mqUrl="+mqUrl);
         } catch (MQClientException e) {
             e.printStackTrace();
         }
@@ -51,7 +51,6 @@ public class MQConsumerService {
                         offset = 0;
 
                     PullResult pullResult = consumer.pull(mq, "*", offset, 32);
-                    System.out.printf("%s%n", offset + "\t" + mq + "\t" + pullResult);
                     switch (pullResult.getPullStatus()) {
                         case FOUND:
                             if(pullResult.getMsgFoundList().size()>0){
