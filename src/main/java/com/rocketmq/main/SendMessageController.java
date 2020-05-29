@@ -1,7 +1,6 @@
 package com.rocketmq.main;
 
 import com.alibaba.rocketmq.shade.com.alibaba.fastjson.JSONObject;
-import com.rocketmq.entity.StatLog;
 import com.rocketmq.service.MQProducerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,14 +26,9 @@ public class SendMessageController {
     @RequestMapping(path = {"/test/rocketmq"})
     public String SendMsg (){
 
-        StatLog log = new StatLog().setActionId("10122").setAppId(5)
-                .setChannel("android_tencent")
-                .setCreateTime(new Timestamp(System.currentTimeMillis()))
-                .setDescription("{\"data\":[{\"index\":0,\"pid\":1000,\"targetType\":2,\"skuSeed\":null},{\"index\":1,\"pid\":1305,\"targetType\":2,\"skuSeed\":null}],\"channel\":\"baidu\",\"deviceId\":\"869868020358636\"}")
-                .setId(1).setPageId(10051)
-                .setPreAppId(0).setPrePageId(0).setUid(1111);
 
-        boolean rs = mqService.sendMsg(log);
+
+        boolean rs = mqService.sendMsg("111");
         if(!rs){
             logger.error("mq send failed log {}" + JSONObject.toJSONString(log));
             return "FAILURE";

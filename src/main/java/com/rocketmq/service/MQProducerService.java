@@ -1,7 +1,6 @@
 package com.rocketmq.service;
 
 import com.alibaba.rocketmq.shade.com.alibaba.fastjson.JSONObject;
-import com.rocketmq.entity.StatLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.alibaba.rocketmq.common.message.Message;
@@ -18,14 +17,14 @@ public class MQProducerService {
 
     private static DefaultMQProducer producer = new DefaultMQProducer("mq_test_producer");
 
-    private static final String mqUrl = "192.168.180.10:9876;192.168.180.11:9876;192.168.180.12:9876;";
+    private static final String mqUrl = "127.0.0.1:9876";
     private static final String mqTopic = "mq_test_topic";
     private static final String mqTag = "mq_test_tag";
 
     private SendCallback mqcallback;
 
 
-    public boolean sendMsg(StatLog log) {
+    public boolean sendMsg(String log) {
         try {
             Message msg = new Message(mqTopic, mqTag, JSONObject.toJSONString(log).getBytes());
 
