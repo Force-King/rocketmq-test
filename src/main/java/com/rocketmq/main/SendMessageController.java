@@ -1,14 +1,11 @@
 package com.rocketmq.main;
 
-import com.alibaba.rocketmq.shade.com.alibaba.fastjson.JSONObject;
 import com.rocketmq.service.MQProducerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.sql.Timestamp;
 
 @RestController
 public class SendMessageController {
@@ -30,7 +27,7 @@ public class SendMessageController {
 
         boolean rs = mqService.sendMsg("111");
         if(!rs){
-            logger.error("mq send failed log {}" + JSONObject.toJSONString(log));
+            logger.error("mq send failed ");
             return "FAILURE";
         }
         return "SUCCESS";

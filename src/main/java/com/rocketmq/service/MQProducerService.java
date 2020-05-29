@@ -24,9 +24,9 @@ public class MQProducerService {
     private SendCallback mqcallback;
 
 
-    public boolean sendMsg(String log) {
+    public boolean sendMsg(String message) {
         try {
-            Message msg = new Message(mqTopic, mqTag, JSONObject.toJSONString(log).getBytes());
+            Message msg = new Message(mqTopic, mqTag, JSONObject.toJSONString(message).getBytes());
 
             this.producer.send(msg, mqcallback);
             return true;
