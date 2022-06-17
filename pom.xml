@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <com.alibaba.fastjson>1.2.60</com.alibaba.fastjson>
+        <com.alibaba.fastjson>1.2.83</com.alibaba.fastjson>
     </properties>
 
     <dependencies>
